@@ -34,7 +34,19 @@ publishBtnEl.addEventListener("click", function () {
     to: toValue,
   };
 
-  push(endorsementsInDB, newEndorsement);
+  if(newEndorsement.message != "" && newEndorsement.from != "" && newEndorsement.to != "") {
+    endorsementItemsListEl.innerHTML += `<li>From: ${newEndorsement.from} <br>
+    ${newEndorsement.message} <br>
+    ${newEndorsement.to}</li>`;
+    push(endorsementsInDB, newEndorsement);
+    } else {
+        alert("You must fill all fields");
+
+    }
+    endorsCommentsEl.value = "";
+    fromFieldEl.value = "";
+    toFieldEl.value = "";
+   
 
   endorsCommentsEl.value = "";
   fromFieldEl.value = "";
@@ -78,7 +90,7 @@ function appendEndorsementsToEndorsementsListEl(endorsement) {
   fromSpan.textContent = `From: ${endorsement.from}`;
   listItem.appendChild(fromSpan);
 
-  endorsementItemsListEl.insertAdjacentElement("afterbegin", listItem);
+   endorsementItemsListEl.insertAdjacentElement("afterbegin", listItem);
 }
 
 function clearEndorsementItemsListEl() {
