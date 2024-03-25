@@ -40,7 +40,7 @@ publishBtnEl.addEventListener("click", function () {
     ${newEndorsement.to}</li>`;
     push(endorsementsInDB, newEndorsement);
     } else {
-        alert("You must fill all fields");
+        alert("you must fill in all text fields");
 
     }
     endorsCommentsEl.value = "";
